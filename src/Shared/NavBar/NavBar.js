@@ -1,17 +1,20 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import logo from '../../assets/logo.webp';
 import './NavBar.css';
+import { FaSearch } from 'react-icons/fa';
+import { BsFillMoonFill } from 'react-icons/bs';
+import React from "react";
+
 
 const NavBar = () => {
   
+
   // menu items for all 
   const menuItems = <React.Fragment>
     <li className="li-style"><Link className="font-bold ">Home</Link></li>
     <li className="li-style"><Link className="font-bold">About Us</Link></li>
     <li className="li-style"><Link className="font-bold">Blogs</Link></li>
   </React.Fragment>
-
 
   return (
     <div className="navbar container mx-auto">
@@ -50,7 +53,13 @@ const NavBar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        
+        <div className="flex flex-row items-center">
+            <FaSearch className=" text-5xl text-white mr-2 hover:transition-bg rounded-full bg-main p-3"/>
+
+            <div  className="text-xl text-white mr-2 hover:transition-bg rounded-full bg-main p-3">
+               <BsFillMoonFill/>
+            </div>
+        </div>
       </div>
     </div>
   );
