@@ -10,11 +10,10 @@ const SignUp = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
 
-  const handleLogin = (data) => {
+  const handleSignUp = (data) => {
     console.log(data);
   };
 
@@ -35,7 +34,7 @@ const SignUp = () => {
               </div>
               <h1 className="text-center text-3xl font-bold">Hello Again!</h1>
 
-              <form onSubmit={handleSubmit(handleLogin)} className="space-y-3">
+              <form onSubmit={handleSubmit(handleSignUp)} className="space-y-3">
                 <div className="form-control w-2/3 mx-auto">
                   <label className="label">
                     <span className="label-text">Name</span>
@@ -77,6 +76,7 @@ const SignUp = () => {
                   <input
                     {...register("password", {
                       required: "Name is required",
+                      minLength: { value: 6, message: 'Password must be 6 character or longer!'}
                     })}
                     type="password"
                     placeholder="Type here"

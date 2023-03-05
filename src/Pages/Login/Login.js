@@ -4,8 +4,19 @@ import loginImg from "../../assets/loginimg.jpg";
 import { TbBrandLinktree } from "react-icons/tb";
 import { IoLogoGoogle } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const handleLogin = (data) => {
+    console.log(data);
+  };
+
   return (
     <section>
       <div
@@ -23,26 +34,38 @@ const Login = () => {
               </div>
               <h1 className="text-center text-3xl font-bold">Hello Again!</h1>
 
-              <form className="space-y-4">
+              <form onSubmit={handleSubmit(handleLogin)} className="space-y-4">
                 <div className="form-control w-2/3 mx-auto">
                   <label className="label">
                     <span className="label-text">Email</span>
                   </label>
                   <input
+                    {...register("email", {
+                      required: "Email is required",
+                    })}
                     type="text"
                     placeholder="Type here"
                     className="input input-bordered"
                   />
+                    {errors.email && (
+                    <p className="text-main my-1">{errors.email?.message}</p>
+                  )}
                 </div>
                 <div className="form-control w-2/3 mx-auto">
                   <label className="label">
-                    <span className="label-text">Email</span>
+                    <span className="label-text">Password</span>
                   </label>
                   <input
-                    type="text"
+                    {...register("password", {
+                      required: "Password is required",
+                    })}
+                    type="password"
                     placeholder="Type here"
                     className="input input-bordered"
                   />
+                    {errors.password && (
+                    <p className="text-main my-1">{errors.password?.message}</p>
+                  )}
                 </div>
 
                 <div className="flex justify-between items-center w-2/3 mx-auto">
@@ -63,12 +86,17 @@ const Login = () => {
               </form>
 
               <div className="flex w-2/3 mx-auto items-center my-4 justify-center border p-2 rounded-md">
-                <IoLogoGoogle className="text-2xl mr-4"/>
+                <IoLogoGoogle className="text-2xl mr-4" />
                 <p>Sign in with Google</p>
               </div>
 
               <div className="text-center">
-                <p className="text-xl">Don't have an account?<Link className="font-bold" to='/v2/signup'>Sign up</Link></p>
+                <p className="text-xl">
+                  Don't have an account?
+                  <Link className="font-bold" to="/v2/signup">
+                    Sign up
+                  </Link>
+                </p>
               </div>
             </div>
           </div>
