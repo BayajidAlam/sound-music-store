@@ -1,10 +1,10 @@
 import React from "react";
-import img1 from "../../assets/daniel-bernard-rNkhV94Xo0w-unsplash.jpg";
-import img2 from "../../assets/daniel-bernard-rNkhV94Xo0w-unsplash.jpg";
-import img3 from "../../assets/daniel-bernard-rNkhV94Xo0w-unsplash.jpg";
-import img4 from "../../assets/daniel-bernard-rNkhV94Xo0w-unsplash.jpg";
-import img5 from "../../assets/daniel-bernard-rNkhV94Xo0w-unsplash.jpg";
-import img6 from "../../assets/daniel-bernard-rNkhV94Xo0w-unsplash.jpg";
+import img1 from "../../assets/banner.jpg";
+import img2  from "../../assets/banner.jpg";
+import img3  from "../../assets/banner.jpg";
+import img4  from "../../assets/banner.jpg";
+import img5  from "../../assets/banner.jpg";
+import img6  from "../../assets/banner.jpg";
 import "./Banner.css";
 import BannerItem from "./BannerItem";
 
