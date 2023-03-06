@@ -3,6 +3,7 @@ import Banner from "../../../components/Banner/Banner";
 import Brand from "../../../components/Brand/Brand";
 import Categories from "../../../components/Categories/Categories";
 import ElectricDrum from "../../../components/ElectricDrum/ElectricDrum";
+import WhatsNew from "../../../components/WhatsNew/WhatsNew";
 import WhoWeAre from "../../../components/WhoWeAre/WhoWeAre";
 
 const Home = () => {
@@ -17,8 +18,13 @@ const Home = () => {
       <div className="container mx-auto text-black py-12 placeholder-blue-800">
         <div className="divider text-xl font-bold">Best Sellers</div>
       </div>
-      <WhoWeAre/>
-      <Brand/>
+      <WhoWeAre />
+      <Brand />
+      <div className="container mx-auto text-black py-12 placeholder-blue-800">
+        <div className="divider text-xl font-bold">What's New</div>
+      </div>
+
+      <WhatsNew/>
     </div>
   );
 };
