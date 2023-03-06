@@ -2,8 +2,8 @@
   color: red;
 }
 
-.li-style a{
-  font-size: 20px;
+.li-style a,button{
+  font-size: 18px;
 }
 
 .li-style a:hover{

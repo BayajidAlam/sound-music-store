@@ -18,8 +18,8 @@ const Categories = () => {
   return (
     <section>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 container mx-auto">
-        {categories.map((category) => (
-          <Link to='/v2/login'>
+        {categories.map((category,i) => (
+          <Link key={i} to='/v2/login'>
             <div className="h-36 w-80 relative mx-auto image-container">
               <img className="h-full w-full" src={category.picture} alt="" />
               <div className="absolute top-1/2 left-1/3">

@@ -8,7 +8,7 @@ const Home = () => {
     <div>
       <Banner />
       <div className="container mx-auto text-black py-12 placeholder-blue-800">
-        <div class="divider text-xl font-bold">Shop by Category</div>
+        <div className="divider text-xl font-bold">Shop by Category</div>
       </div>
       <Categories/>
     </div>

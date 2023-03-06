@@ -11,7 +11,7 @@ import { toast, Toaster } from "react-hot-toast";
 const SignUp = () => {
 
   // context 
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUser } = useContext(AuthContext);
 
   // react hook form 
   const {
@@ -25,7 +25,20 @@ const SignUp = () => {
     createUser(data.email,data.password)
     .then(result =>{
       const user = result.user;
+      console.log(user);
       toast.success('User created successfully!')
+
+      // updateUser 
+      const userInfo = {
+        displayName : data.name
+      }
+      updateUser(userInfo)
+      .then(()=>{
+        toast.success('Profile updated!');
+      })
+      .catch(err=>{
+        toast.error(err.message);
+      })
     })
     .catch(err=>{
       toast.error(err.message)
