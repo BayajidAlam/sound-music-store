@@ -3,35 +3,39 @@ import "./Login.css";
 import loginImg from "../../assets/loginimg.jpg";
 import { TbBrandLinktree } from "react-icons/tb";
 import { IoLogoGoogle } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../context/AuthProvider";
 import { toast, Toaster } from "react-hot-toast";
 
 const Login = () => {
-  // context 
+  // context
   const { signIn } = useContext(AuthContext);
 
-  // react hook form 
+  // react hook form
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  // login handler 
-  const handleLogin = (data) => {
-    // sign in a user 
-    signIn(data.email,data.password)
-    .then(result =>{
-      console.log(result.user);
-      toast.success("Signed in user successfully!")
-    })
-    .catch(err=>{
-      toast.err(err.message)
-    })
-  };
+  let navigate = useNavigate();
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
 
+  // login handler
+  const handleLogin = (data) => {
+    // sign in a user
+    signIn(data.email, data.password)
+      .then((result) => {
+        console.log(result.user);
+        toast.success("Signed in user successfully!");
+        navigate(from, { replace: true });
+      })
+      .catch((err) => {
+        toast.err(err.message);
+      });
+  };
 
   return (
     <section>
@@ -63,7 +67,7 @@ const Login = () => {
                     placeholder="Type here"
                     className="input input-bordered"
                   />
-                    {errors.email && (
+                  {errors.email && (
                     <p className="text-main my-1">{errors.email?.message}</p>
                   )}
                 </div>
@@ -79,7 +83,7 @@ const Login = () => {
                     placeholder="Type here"
                     className="input input-bordered"
                   />
-                    {errors.password && (
+                  {errors.password && (
                     <p className="text-main my-1">{errors.password?.message}</p>
                   )}
                 </div>
@@ -117,7 +121,7 @@ const Login = () => {
             </div>
           </div>
         </div>
-        <Toaster/>
+        <Toaster />
       </div>
     </section>
   );

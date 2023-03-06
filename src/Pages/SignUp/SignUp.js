@@ -3,7 +3,7 @@ import "./SignUp..css";
 import loginImg from "../../assets/loginimg.jpg";
 import { TbBrandLinktree } from "react-icons/tb";
 import { IoLogoGoogle } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../context/AuthProvider";
 import { toast, Toaster } from "react-hot-toast";
@@ -20,6 +20,10 @@ const SignUp = () => {
     formState: { errors },
   } = useForm();
 
+  let navigate = useNavigate();
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+
   // login handler 
   const handleSignUp = (data) => {
     createUser(data.email,data.password)
@@ -35,6 +39,7 @@ const SignUp = () => {
       updateUser(userInfo)
       .then(()=>{
         toast.success('Profile updated!');
+        navigate(from, { replace: true });
       })
       .catch(err=>{
         toast.error(err.message);
