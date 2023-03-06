@@ -1,21 +1,37 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Login.css";
 import loginImg from "../../assets/loginimg.jpg";
 import { TbBrandLinktree } from "react-icons/tb";
 import { IoLogoGoogle } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { AuthContext } from "../../context/AuthProvider";
+import { toast } from "react-hot-toast";
 
 const Login = () => {
+  // context 
+  const { signIn } = useContext(AuthContext);
+
+  // react hook form 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
+  // login handler 
   const handleLogin = (data) => {
-    console.log(data);
+    // sign in a user 
+    signIn(data.email,data.password)
+    .then(result =>{
+      console.log(result.user);
+      toast.success("Signed in user successfully!")
+    })
+    .catch(err=>{
+      toast.err(err.message)
+    })
   };
+
 
   return (
     <section>
@@ -23,7 +39,7 @@ const Login = () => {
         className="flex items-center
         main-container"
       >
-        <div className="w-1/2 bg-main">
+        <div className="w-1/2">
           <img className="h-screen w-full" src={loginImg} alt="" />
         </div>
         <div className="w-1/2">

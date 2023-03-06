@@ -1,20 +1,35 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./SignUp..css";
 import loginImg from "../../assets/loginimg.jpg";
 import { TbBrandLinktree } from "react-icons/tb";
 import { IoLogoGoogle } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { AuthContext } from "../../context/AuthProvider";
+import { toast, Toaster } from "react-hot-toast";
 
 const SignUp = () => {
+
+  // context 
+  const { createUser } = useContext(AuthContext);
+
+  // react hook form 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
+  // login handler 
   const handleSignUp = (data) => {
-    console.log(data);
+    createUser(data.email,data.password)
+    .then(result =>{
+      const user = result.user;
+      toast.success('User created successfully!')
+    })
+    .catch(err=>{
+      toast.error(err.message)
+    })
   };
 
   return (
@@ -23,7 +38,7 @@ const SignUp = () => {
         className="flex items-center
       main-container"
       >
-        <div className="w-1/2 bg-main">
+        <div className="w-1/2">
           <img className="h-screen w-full" src={loginImg} alt="" />
         </div>
         <div className="w-1/2">
@@ -76,7 +91,8 @@ const SignUp = () => {
                   <input
                     {...register("password", {
                       required: "Name is required",
-                      minLength: { value: 6, message: 'Password must be 6 character or longer!'}
+                      minLength: { value: 6, message: 'Password must be 6 character or longer!'},
+                      pattern: { value: /^(?=(.*[a-z]){1,})(?=(.*[A-Z]){1,})(?=(.*[0-9]){1,})(?=(.*[!@#$%^&*()\-__+.]){1,}).{6,}$/, message: 'Password must be strong!'}
                     })}
                     type="password"
                     placeholder="Type here"
@@ -113,7 +129,7 @@ const SignUp = () => {
                 </div>
 
                 <div className="w-2/3 mx-auto">
-                  <button className="bg-main text-white w-full py-2 font-bold rounded-md">
+                  <button type="submit" className="bg-main text-white w-full py-2 font-bold rounded-md">
                     Sign Up
                   </button>
                 </div>
@@ -136,6 +152,7 @@ const SignUp = () => {
           </div>
         </div>
       </div>
+      <Toaster/>
     </section>
   );
 };
