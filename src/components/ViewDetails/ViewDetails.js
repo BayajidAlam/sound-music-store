@@ -2,12 +2,27 @@ import React from "react";
 import { useLoaderData } from "react-router-dom";
 import { MdOutlineCall } from "react-icons/md";
 import { AiFillSafetyCertificate } from "react-icons/ai";
+import { MdAlternateEmail } from "react-icons/md";
 
 const ViewDetails = () => {
   // load data from loader
   const data = useLoaderData();
   console.log(data);
-  const { name, postedOn, location, picture, sallerName, email, mobile } = data;
+  const {
+    name,
+    postedOn,
+    location,
+    picture,
+    sallerName,
+    email,
+    mobile,
+    resalePrice,
+    originalPrice,
+    conditions,
+    salesStatus,
+    useingFrom,
+    description
+  } = data;
   return (
     <section>
       <div className="container mx-auto">
@@ -23,7 +38,10 @@ const ViewDetails = () => {
             <div className="w-1/3 p-2 mx-auto">
               <div className="flex flex-col px-2 py-3 border border-main mb-2">
                 <p className="font-bold text-lg">{sallerName}</p>
-                <p>{email}</p>
+                <div className="flex items-center">
+                  <MdAlternateEmail />
+                  <p>{email}</p>
+                </div>
               </div>
               <div className="flex items-center border border-main px-2 py-3 mb-2">
                 <div className="flex items-center justify-center bg-gray-300 p-2 rounded-full mr-2">
@@ -34,7 +52,7 @@ const ViewDetails = () => {
 
               <div className="border-main border mt-1">
                 <div className="flex px-2 py-3 items-center">
-                  <AiFillSafetyCertificate className="mr-2"/>
+                  <AiFillSafetyCertificate className="mr-2" />
                   <p className="text-lg font-bold">Safety Tips</p>
                 </div>
                 <div className="p-2">
@@ -50,6 +68,30 @@ const ViewDetails = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div>
+          <div className="pl-16 py-4">
+            <p className="text-2xl text-main font-bold">TK {resalePrice}</p>
+            <div className="grid grid-cols-2 w-1/2 gap-4 mt-2">
+              <p className="text-gray-500">Original Price: {originalPrice}</p>
+              <p className="text-gray-500 capitalize">Condition: {conditions}</p>
+              <p className="text-gray-500">Purchage Date: {useingFrom}</p>
+              <div className="flex">
+                {salesStatus === "sold" ? (
+                  <p className="bg-main w-16 text-center text-white rounded-full h-7 font-bold"> Sold</p>
+                ) : (
+                  <p className="bg-main w-16 text-center text-white rounded-full h-7 font-bold">
+                    Unsold
+                  </p>
+                )}
+              </div>
+            </div>
+            <p className="text-lg font-bold
+            mt-1">Description: <br /><span className="font-normal capitalize">{description}</span></p>
+          </div>
+          <div className="text-center">
+            <button className="py-2 px-8 bg-main font-bold text-lg text-white rounded-full hover:shadow-xl">Book Now</button>
           </div>
         </div>
       </div>

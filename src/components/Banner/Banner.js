@@ -1,5 +1,5 @@
 import React from "react";
-import img1 from "../../assets/banner.jpg";
+import img1 from "../../assets/karim-manjra-cW3nDFVpi10-unsplash.jpg";
 import img2  from "../../assets/banner.jpg";
 import img3  from "../../assets/banner.jpg";
 import img4  from "../../assets/banner.jpg";
