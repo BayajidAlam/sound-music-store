@@ -1,4 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
+import Category from "../../components/Category/Category";
+import ViewDetails from "../../components/ViewDetails/ViewDetails";
 import Main from "../../Layout/Main";
 import Second from "../../Layout/Second";
 import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
@@ -16,6 +18,16 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
+      {
+        path: '/category/:name',
+        element: <Category/>,
+        loader: ({params}) => fetch(`http://localhost:5000/category?name=${params.name}`)
+      },
+      {
+        path: '/viewDetails/:id',
+        element: <ViewDetails/>,
+        loader: ({params}) => fetch(`http://localhost:5000/viewDetails?id=${params.id}`)
+      }
     ],
   },
   {

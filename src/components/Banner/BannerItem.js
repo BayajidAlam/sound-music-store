@@ -7,8 +7,8 @@ const BannerItem = ({slide}) => {
 
   return (
     <div id={`slide${id}`} className="carousel-item relative w-full">
-      <div className="img-gradient">
-        <img src={image} className="w-full banner-img" alt="" />
+      <div style={{ backgroundImage: `url(${image})` }} className="img-gradient ">
+        
       </div>
       <div className="absolute flex justify-between transform  left-5 right-5 top-1/3">
         <div className="w-1/2 mx-auto space-y-6">
