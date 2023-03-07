@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { MdOutlineCall } from "react-icons/md";
 import { AiFillSafetyCertificate } from "react-icons/ai";
 import { MdAlternateEmail } from "react-icons/md";
+import BookingModal from "../BookingModal/BookingModal";
 
 const ViewDetails = () => {
   // load data from loader
   const data = useLoaderData();
-  console.log(data);
+
   const {
     name,
     postedOn,
@@ -21,8 +22,12 @@ const ViewDetails = () => {
     conditions,
     salesStatus,
     useingFrom,
-    description
+    description,
   } = data;
+
+  // state
+  const [booking, setBooking] = useState(null);
+
   return (
     <section>
       <div className="container mx-auto">
@@ -75,11 +80,16 @@ const ViewDetails = () => {
             <p className="text-2xl text-main font-bold">TK {resalePrice}</p>
             <div className="grid grid-cols-2 w-1/2 gap-4 mt-2">
               <p className="text-gray-500">Original Price: {originalPrice}</p>
-              <p className="text-gray-500 capitalize">Condition: {conditions}</p>
+              <p className="text-gray-500 capitalize">
+                Condition: {conditions}
+              </p>
               <p className="text-gray-500">Purchage Date: {useingFrom}</p>
               <div className="flex">
                 {salesStatus === "sold" ? (
-                  <p className="bg-main w-16 text-center text-white rounded-full h-7 font-bold"> Sold</p>
+                  <p className="bg-main w-16 text-center text-white rounded-full h-7 font-bold">
+                    {" "}
+                    Sold
+                  </p>
                 ) : (
                   <p className="bg-main w-16 text-center text-white rounded-full h-7 font-bold">
                     Unsold
@@ -87,14 +97,27 @@ const ViewDetails = () => {
                 )}
               </div>
             </div>
-            <p className="text-lg font-bold
-            mt-1">Description: <br /><span className="font-normal capitalize">{description}</span></p>
+            <p
+              className="text-lg font-bold
+            mt-1"
+            >
+              Description: <br />
+              <span className="font-normal capitalize">{description}</span>
+            </p>
           </div>
           <div className="text-center">
-            <button className="py-2 px-8 bg-main font-bold text-lg text-white rounded-full hover:shadow-xl">Book Now</button>
+            <label
+              onClick={() => setBooking(data)}
+              htmlFor="sound-music-modal"
+              className="py-2 px-8 bg-main font-bold text-lg text-white rounded-full hover:shadow-xl"
+            >
+              Book Now
+            </label>
           </div>
         </div>
       </div>
+
+      {booking && <BookingModal booking={booking} />}
     </section>
   );
 };
