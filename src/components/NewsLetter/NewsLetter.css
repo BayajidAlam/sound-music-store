@@ -1,0 +1,7 @@
+.bg-guiter{
+  background-image: url('../../assets/singer.webp.crdownload');
+  background-repeat: no-repeat;
+ background-position: center;
+ object-fit: cover;
+ opacity: 0.9;
+}

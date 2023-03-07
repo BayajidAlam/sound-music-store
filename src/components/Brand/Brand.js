@@ -16,7 +16,7 @@ import image5 from "../../assets/5.webp";
 
 const Brand = () => {
   return (
-    <div className="container mx-auto bg-black py-8">
+    <div className="container mx-auto bg-black py-20 ">
       <Swiper
         slidesPerView={5}
         spaceBetween={30}

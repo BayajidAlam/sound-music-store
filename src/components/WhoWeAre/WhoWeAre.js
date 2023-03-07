@@ -4,7 +4,7 @@ import whoWeAre from "../../assets/weAreSound.jpg";
 const WhoWeAre = () => {
   return (
     <section>
-      <div className="sm:flex  sm:w-2/3 container justify-between mx-auto my-8">
+      <div className="sm:flex  sm:w-2/3 container justify-between mx-auto mb-16">
         <img className="sm:w-1/2 h-80" src={whoWeAre} alt="" />
         <div className="sm:w-1/2 ml-4 space-y-6 p-4 lg:p-0">
           <div>

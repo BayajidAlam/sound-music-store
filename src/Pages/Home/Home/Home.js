@@ -3,6 +3,7 @@ import Banner from "../../../components/Banner/Banner";
 import Brand from "../../../components/Brand/Brand";
 import Categories from "../../../components/Categories/Categories";
 import ElectricDrum from "../../../components/ElectricDrum/ElectricDrum";
+import NewsLetter from "../../../components/NewsLetter/NewsLetter";
 import WhatsNew from "../../../components/WhatsNew/WhatsNew";
 import WhoWeAre from "../../../components/WhoWeAre/WhoWeAre";
 
@@ -25,6 +26,7 @@ const Home = () => {
       </div>
 
       <WhatsNew/>
+      <NewsLetter/>
     </div>
   );
 };
