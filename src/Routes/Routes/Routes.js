@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Category from "../../components/Category/Category";
 import ViewDetails from "../../components/ViewDetails/ViewDetails";
+import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
 import Second from "../../Layout/Second";
 import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/viewDetails/:id',
-        element: <ViewDetails/>,
+        element: <PrivateRoute><ViewDetails/></PrivateRoute>,
         loader: ({params}) => fetch(`http://localhost:5000/viewDetails?id=${params.id}`)
       }
     ],
@@ -45,13 +46,19 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/dashboard",
+    path: "/v3/dashboard",
     element: (
       <PrivateRoute>
-        <Dashboard />
+        <DashboardLayout/>
       </PrivateRoute>
     ),
-  },
+    children: [
+      {
+        path: '/v3/dashboard',
+        element: <Dashboard/>
+      }
+    ]
+  }
 ]);
 
 export default router;
