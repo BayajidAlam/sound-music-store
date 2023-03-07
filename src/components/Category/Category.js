@@ -7,7 +7,7 @@ const Category = () => {
 
   return (
     <section>
-      <div className="grid grid-cols-1 container mx-auto py-8">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6 container mx-auto py-8">
         {data.map((card) => (
           <Card key={card._id} card={card} />
         ))}

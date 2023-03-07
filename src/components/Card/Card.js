@@ -1,25 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { HiLocationMarker } from 'react-icons/hi';
 
 const Card = ({ card }) => {
   const { picture, name, location, originalPrice, useingFrom, _id } = card;
 
   return (
     <section>
-      <div className="w-1/2 mx-auto flex items-center">
-        <img className="w-36 h-36" src={picture} alt="" />
-        <div className="w-2/3 flex items-center">
-          <div className="px-8 space-y-4">
-            <p className="text-xl font-bold">{name}</p>
-            <p className="text-gray-500 text-lg">{location}</p>
-            <div className="flex items-center text-gray-500">
-              <p className="mr-8 text-lg">{originalPrice}</p>
-              <p className="text-lg">{useingFrom}</p>
+      <div className="lg:w-[400px] md:w-[360px] mx-auto flex flex-col shadow-xl">
+        <img className="lg:w-full md:w-[360px] h-60" src={picture} alt="" />
+        <div className="px-4 py-4">
+         <p className="text-xl font-bold">{name}</p>
+          <div className="flex items-center justify-between">
+            <p className="my-4 text-lg">Price: {originalPrice}</p>
+            <div className="flex items-center">
+              <HiLocationMarker/>
+              <p className="text-lg">{location}</p>
             </div>
           </div>
         </div>
 
-        <div className="w-1/3">
+        <div className="text-center pb-6">
           <Link to={`/viewDetails/${_id}`}>
             <button className="px-6 py-1 bg-main text-white font-bold hover:shadow-xl shadow-main">
               View Details
@@ -27,8 +28,6 @@ const Card = ({ card }) => {
           </Link>
         </div>
       </div>
-
-      <div className="divider w-1/2 mx-auto text-gray-500"></div>
     </section>
   );
 };
