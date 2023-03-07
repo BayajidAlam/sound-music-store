@@ -4,9 +4,9 @@ import whoWeAre from "../../assets/weAreSound.jpg";
 const WhoWeAre = () => {
   return (
     <section>
-      <div className="sm:flex  sm:w-2/3 container justify-between mx-auto mb-16">
-        <img className="sm:w-1/2 h-80" src={whoWeAre} alt="" />
-        <div className="sm:w-1/2 ml-4 space-y-6 p-4 lg:p-0">
+      <div className="sm:flex  lg:w-2/3 container justify-between mx-auto mb-16 mt-8">
+        <img className="md:w-1/2 w-full  h-80" src={whoWeAre} alt="" />
+        <div className="md:w-1/2 w-full  ml-4 space-y-6 p-4 lg:p-0">
           <div>
             <h1 className="text-2xl font-bold mb-2">Hello, We are SOUND.</h1>
             <hr className="text-black border-2 w-2/4" />

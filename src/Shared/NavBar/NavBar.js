@@ -32,11 +32,16 @@ const NavBar = () => {
       {user?.uid ? (
         <>
           <li className="li-style">
-            <Link to='/dashboard' className="font-bold">Dashboard</Link>
+            <Link to="/dashboard" className="font-bold">
+              Dashboard
+            </Link>
           </li>
-          <button onClick={handleSignOut} className="li-style font-bold">
-            Sign out
-          </button>
+          <li className="li-style">
+            {" "}
+            <button onClick={handleSignOut} className="font-bold">
+              Sign out
+            </button>
+          </li>
         </>
       ) : (
         ""
