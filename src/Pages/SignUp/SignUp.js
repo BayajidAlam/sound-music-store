@@ -24,22 +24,34 @@ const SignUp = () => {
   let location = useLocation();
   let from = location.state?.from?.pathname || "/";
 
+  
   // login handler 
   const handleSignUp = (data) => {
+
+    const name = data.name;
+    const email = data.email;
+    const role = data.role
+
+    const userData = {
+      name,
+      email,
+      role
+    }
+
     createUser(data.email,data.password)
     .then(result =>{
       const user = result.user;
-      console.log(user);
       toast.success('User created successfully!')
 
       // updateUser 
       const userInfo = {
-        displayName : data.name
+        displayName : name
       }
       updateUser(userInfo)
       .then(()=>{
         toast.success('Profile updated!');
         navigate(from, { replace: true });
+        saveUser(userData)
       })
       .catch(err=>{
         toast.error(err.message);
@@ -50,6 +62,22 @@ const SignUp = () => {
     })
   };
 
+  // save user to db 
+  const saveUser = (userData) => {
+    fetch('http://localhost:5000/users', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(userData)
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      if(data.acknowledge){
+        toast.success('User saved successfully!')
+      }
+    })
+  }
   return (
     <section>
       <div
@@ -132,7 +160,7 @@ const SignUp = () => {
                     className="w-full"
                   >
                     <option value="buyer">Buyer</option>
-                    <option value="saller">Seller</option>
+                    <option value="seller">Seller</option>
                   </select>
                 </div>
 

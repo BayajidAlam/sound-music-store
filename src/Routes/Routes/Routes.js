@@ -4,6 +4,7 @@ import ViewDetails from "../../components/ViewDetails/ViewDetails";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
 import Second from "../../Layout/Second";
+import Blogs from "../../Pages/Blogs/Blogs";
 import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
         path: '/viewDetails/:id',
         element: <PrivateRoute><ViewDetails/></PrivateRoute>,
         loader: ({params}) => fetch(`http://localhost:5000/viewDetails?id=${params.id}`)
+      },
+      {
+        path: '/blogs',
+        element: <Blogs/>
       }
     ],
   },
@@ -56,10 +61,6 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/v3/dashboard',
-        element: <Dashboard/>
-      },
-      {
-        path: '/v3/dashboard/myOrders',
         element: <MyOrders/>
       }
     ]

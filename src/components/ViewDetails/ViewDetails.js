@@ -4,6 +4,7 @@ import { MdOutlineCall } from "react-icons/md";
 import { AiFillSafetyCertificate } from "react-icons/ai";
 import { MdAlternateEmail } from "react-icons/md";
 import BookingModal from "../BookingModal/BookingModal";
+import { Toaster } from "react-hot-toast";
 
 const ViewDetails = () => {
   // load data from loader
@@ -117,7 +118,11 @@ const ViewDetails = () => {
         </div>
       </div>
 
-      {booking && <BookingModal booking={booking} />}
+      {booking && <BookingModal 
+      booking={booking} 
+      setBooking={setBooking}
+      />}
+      <Toaster/>
     </section>
   );
 };
