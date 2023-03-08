@@ -1,17 +1,16 @@
 import React from "react";
 import img1 from "../../assets/karim-manjra-cW3nDFVpi10-unsplash.jpg";
-import img2  from "../../assets/banner.jpg";
-import img3  from "../../assets/banner.jpg";
+import img2  from "../../assets/Germany.jpg";
+import img3  from "../../assets/music_show.jpg";
 import img4  from "../../assets/banner.jpg";
-import img5  from "../../assets/banner.jpg";
-import img6  from "../../assets/banner.jpg";
+
 import "./Banner.css";
 import BannerItem from "./BannerItem";
 
 const bannerData = [
   {
       image: img1,
-      prev: 6,
+      prev: 4,
       id: 1,
       next: 2
   },
@@ -31,20 +30,9 @@ const bannerData = [
       image: img4,
       prev: 3,
       id: 4,
-      next: 5
-  },
-  {
-      image: img5,
-      prev: 4,
-      id: 5,
-      next: 6
-  },
-  {
-      image: img6,
-      prev: 5,
-      id: 6,
       next: 1
-  }
+  },
+  
 ]
 
 const Banner = () => {

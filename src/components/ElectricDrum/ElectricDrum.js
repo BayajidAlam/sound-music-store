@@ -15,6 +15,7 @@ const ElectricDrum = () => {
               Design based on input from professional players such as vinnie
               paul, Andey solway and many more
             </p>
+            <p>Get Second hand for 40% of new</p>
             <button className="uppercase font-bold py-2 px-6 bg-main text-white">
               Read more
             </button>

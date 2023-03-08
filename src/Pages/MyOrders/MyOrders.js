@@ -34,7 +34,7 @@ const MyOrders = () => {
               <th>Product Details</th>
               <th>Seller Email</th>
               <th>Price</th>
-              <th>Status</th>
+              <th>Payment Status</th>
             </tr>
           </thead>
           <tbody>
@@ -59,7 +59,9 @@ const MyOrders = () => {
                 </td>
                 <td>{booking.sellerEmail}</td>
                 <td>{booking.price}</td>
-                <td>Blue</td>
+                <td>
+                  <button className="py-1 px-4 bg-main text-white rounded-full">Pay Now</button>
+                </td>
               </tr>
             ))}
           </tbody>

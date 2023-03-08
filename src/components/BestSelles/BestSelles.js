@@ -1,85 +1,45 @@
-import React from 'react';
-// images 
-import featureImg1 from '../../assets/fe1.webp';
-import featureImg2 from '../../assets/fe2.webp';
-import featureImg3 from '../../assets/fe3.webp';
-import featureImg4 from '../../assets/fe4.webp';
-// icon 
-import { AiFillStar } from 'react-icons/ai';
+import React, { useEffect, useState } from "react";
+
+// icon
+import { AiFillStar } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const BestSelles = () => {
+  const [bestSells, setBestSelles] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/category?name=Accessories")
+      .then((res) => res.json())
+      .then((data) => {
+        setBestSelles(data);
+      });
+  }, []);
+  
   return (
-    <section className='pb-16'>
-    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 container mx-auto gap-6'>
-    <div>
-        <img className='w-80 h-[350px] m-auto' src={featureImg1} alt="" />
-        <div className='w-80 mx-auto'>
-          <p className='font-bold'>Tama S.L.P. Big Black Steel Snare Drum</p>
-          <div className='flex justify-between'>
-                <div className='flex items-center w-20 justify-evenly text-yellow-500'>
-                <AiFillStar/>
-                <AiFillStar/>
-                <AiFillStar/>
-                <AiFillStar/>
-                <AiFillStar/>
+    <section className="pb-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 container mx-auto gap-6">
+        {bestSells.map((sell) => (
+        <Link to={`/viewDetails/${sell._id}`}>
+          <div>
+            <img className="w-80 h-52 m-auto" src={sell.picture} alt="" />
+            <div className="w-80 mx-auto">
+              <p className="font-bold">
+                {sell.name}
+              </p>
+              <div className="flex justify-between">
+                <div className="flex items-center w-20 justify-evenly text-yellow-500">
+                  <AiFillStar />
+                  <AiFillStar />
+                  <AiFillStar />
+                  <AiFillStar />
+                  <AiFillStar />
                 </div>
-                <p className='text-main font-bold'>$249.99</p>
+                <p className="text-main font-bold">${sell.resalePrice}</p>
+              </div>
+            </div>
           </div>
-        </div>
+        </Link>
+        ))}
       </div>
-
-    <div>
-        <img className='w-80 h-[350px] mx-auto'  src={featureImg2} alt="" />
-        <div className='w-80 mx-auto'>
-          <p  className='font-bold'>Tama S.L.P. Big Black Steel Snare Drum</p>
-          <div className='flex justify-between'>
-                <div className='flex items-center w-20 justify-evenly text-yellow-500'>
-                <AiFillStar/>
-                <AiFillStar/>
-                <AiFillStar/>
-                <AiFillStar/>
-                <AiFillStar/>
-                </div>
-                <p className='text-main font-bold'>$249.99</p>
-          </div>
-        </div>
-      </div>
-
-    <div>
-        <img className='w-80 h-[350px] mx-auto'  src={featureImg3} alt="" />
-        <div className='w-80 mx-auto'>
-          <p  className='font-bold'>Tama S.L.P. Big Black Steel Snare Drum</p>
-          <div className='flex justify-between'>
-                <div className='flex items-center w-20 justify-evenly text-yellow-500'>
-                <AiFillStar/>
-                <AiFillStar/>
-                <AiFillStar/>
-                <AiFillStar/>
-                <AiFillStar/>
-                </div>
-                <p className='text-main font-bold'>$249.99</p>
-          </div>
-        </div>
-      </div>
-
-    <div>
-        <img className='w-80 h-[350px] mx-auto'  src={featureImg4} alt="" />
-        <div className='w-80 mx-auto'>
-          <p  className='font-bold'>Tama S.L.P. Big Black Steel Snare Drum</p>
-          <div className='flex justify-between'>
-                <div className='flex items-center w-20 justify-evenly text-yellow-500'>
-                <AiFillStar/>
-                <AiFillStar/>
-                <AiFillStar/>
-                <AiFillStar/>
-                <AiFillStar/>
-                </div>
-                <p className='text-main font-bold'>$249.99</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
     </section>
   );
 };
