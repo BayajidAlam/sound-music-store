@@ -6,7 +6,7 @@ import { BsTwitch } from "react-icons/bs";
 import { AiFillInstagram } from "react-icons/ai";
 const Footer = () => {
   return (
-    <section className="bg-black text-white py-8 mt-12">
+    <section className="bg-black text-white py-8 mt-12 print:hidden">
       <div className="w-2/3 mx-auto">
         <div className="lg:flex">
           <div className="lg:flex items-center w-1/2">

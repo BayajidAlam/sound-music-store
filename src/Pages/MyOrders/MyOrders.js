@@ -17,6 +17,33 @@ const MyOrders = () => {
     },
   });
 
+  // make an order
+  const handleOrder = (booking) => {
+
+    const order = {
+      productId: booking._id,
+      productName: booking.productName,
+      customer: booking.buyerName,
+      email: booking.buyerEmail,
+      phone: booking.buyerPhone,
+      price: booking.price,
+      location: booking.meetLocation
+
+    };
+    // send to server 
+    fetch('http://localhost:5000/order', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(order)
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      window.location.replace(data.url)
+    })
+  };
+
   if (booings.length === 0) {
     return (
       <div className="mt-4">
@@ -60,7 +87,12 @@ const MyOrders = () => {
                 <td>{booking.sellerEmail}</td>
                 <td>{booking.price}</td>
                 <td>
-                  <button className="py-1 px-4 bg-main text-white rounded-full">Pay Now</button>
+                  <button
+                    onClick={() => handleOrder(booking)}
+                    className="py-1 px-4 bg-main text-white rounded-full"
+                  >
+                    Pay Now
+                  </button>
                 </td>
               </tr>
             ))}

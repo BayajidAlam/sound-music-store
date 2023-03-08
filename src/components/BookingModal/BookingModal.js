@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 
 const BookingModal = ({ booking, setBooking }) => {
@@ -8,7 +9,7 @@ const BookingModal = ({ booking, setBooking }) => {
   } = booking;
   // context
   const { user } = useContext(AuthContext);
-  
+  const navigate = useNavigate();
   
   const handleBooking = event => {
     event.preventDefault()
@@ -47,6 +48,7 @@ const BookingModal = ({ booking, setBooking }) => {
         setBooking(null)
         updateBookingStatus(booking._id)
         toast.success('Thank you, successful booked!')
+        navigate('/v3/dashboard')
       }
     })
   }

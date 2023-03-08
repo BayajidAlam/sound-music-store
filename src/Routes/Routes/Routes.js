@@ -4,11 +4,13 @@ import ViewDetails from "../../components/ViewDetails/ViewDetails";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
 import Second from "../../Layout/Second";
+import AddAProduct from "../../Pages/AddAProduct/AddAProduct";
 import Blogs from "../../Pages/Blogs/Blogs";
-import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import MyOrders from "../../Pages/MyOrders/MyOrders";
+import PaymentFail from "../../Pages/PaymentFail/PaymentFail";
+import PaymentSuceess from "../../Pages/PyamentSuccess/PaymentSuceess";
 import SignUp from "../../Pages/SignUp/SignUp";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
@@ -34,6 +36,14 @@ const router = createBrowserRouter([
       {
         path: '/blogs',
         element: <Blogs/>
+      },
+      {
+        path:'/payment/success',
+        element: <PaymentSuceess/>
+      },
+      {
+        path: 'payment/fail',
+        element: <PaymentFail/>
       }
     ],
   },
@@ -62,6 +72,10 @@ const router = createBrowserRouter([
       {
         path: '/v3/dashboard',
         element: <MyOrders/>
+      },
+      {
+        path: '/v3/dashboard/addProduct',
+        element: <AddAProduct/>
       }
     ]
   }
