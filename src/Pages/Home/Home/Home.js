@@ -4,9 +4,11 @@ import BestSelles from "../../../components/BestSelles/BestSelles";
 import Brand from "../../../components/Brand/Brand";
 import Categories from "../../../components/Categories/Categories";
 import ElectricDrum from "../../../components/ElectricDrum/ElectricDrum";
+import Featured from "../../../components/Featured/Featured";
 import NewsLetter from "../../../components/NewsLetter/NewsLetter";
 import WhatsNew from "../../../components/WhatsNew/WhatsNew";
 import WhoWeAre from "../../../components/WhoWeAre/WhoWeAre";
+
 
 const Home = () => {
   return (
@@ -34,10 +36,15 @@ const Home = () => {
 
 
       <div className="container mx-auto text-black py-12 placeholder-blue-800">
+        <div className="divider text-xl font-bold">Featured</div>
+      </div>
+      <Featured/>
+      <div className="container mx-auto text-black py-12 placeholder-blue-800">
         <div className="divider text-xl font-bold">What's New</div>
       </div>
 
       <WhatsNew/>
+
       <NewsLetter/>
     </div>
   );

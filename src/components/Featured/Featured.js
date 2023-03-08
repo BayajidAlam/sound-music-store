@@ -7,7 +7,7 @@ import featureImg4 from '../../assets/fe4.webp';
 // icon 
 import { AiFillStar } from 'react-icons/ai';
 
-const BestSelles = () => {
+const Featured = () => {
   return (
     <section className='pb-16'>
     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 container mx-auto gap-6'>
@@ -84,4 +84,4 @@ const BestSelles = () => {
   );
 };
 
-export default BestSelles;
+export default Featured;

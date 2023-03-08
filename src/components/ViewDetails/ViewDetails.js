@@ -30,7 +30,7 @@ const ViewDetails = () => {
   const [booking, setBooking] = useState(null);
 
   return (
-    <section>
+    <section className="h-screen">
       <div className="container mx-auto">
         <div>
           <div className="pl-16 py-4">
