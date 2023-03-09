@@ -7,6 +7,7 @@ import Categories from "../../../components/Categories/Categories";
 import ElectricDrum from "../../../components/ElectricDrum/ElectricDrum";
 import Featured from "../../../components/Featured/Featured";
 import NewsLetter from "../../../components/NewsLetter/NewsLetter";
+import Violins from "../../../components/Violins/Violins";
 import WhatsNew from "../../../components/WhatsNew/WhatsNew";
 import WhoWeAre from "../../../components/WhoWeAre/WhoWeAre";
 
@@ -47,7 +48,7 @@ const Home = () => {
       </div>
 
       <WhatsNew/>
-
+      <Violins/>
       <NewsLetter/>
     </div>
   );

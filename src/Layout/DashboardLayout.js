@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import NavBar from "../Shared/NavBar/NavBar";
 
 const DashboardLayout = () => {
@@ -23,11 +23,27 @@ const DashboardLayout = () => {
 
             {/* Side bar item  */}
             <li>
-              <a>Sidebar Item 1</a>
+                <Link to='/v3/dashboard'>My Order</Link>
             </li>
             <li>
-              <a>Sidebar Item 2</a>
+                <Link to='/v3/dashboard/allsellers'>All Sellers</Link>
             </li>
+            <li>
+                <Link to='/v3/dashboard/allbuyers'>All Buyers</Link>
+            </li>
+            <li>
+                <Link to='/v3/dashboard/reported'>Reported Item</Link>
+            </li>
+            <li>
+                <Link to='/v3/dashboard/addAProduct'>Add Product</Link>
+            </li>
+            <li>
+                <Link to='/v3/dashboard/myProduct'>MyProduct</Link>
+            </li>
+            <li>
+                <Link to='/v3/dashboard/myBuyer'>My Buyers</Link>
+            </li>
+          
 
           </ul>
         </div>

@@ -17,8 +17,8 @@ const BestSelles = () => {
   return (
     <section className="pb-16">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 container mx-auto gap-6">
-        {bestSells.map((sell) => (
-        <Link to={`/viewDetails/${sell._id}`}>
+        {bestSells.map((sell,i) => (
+        <Link key={i} to={`/viewDetails/${sell._id}`}>
           <div>
             <img className="w-80 h-52 m-auto" src={sell.picture} alt="" />
             <div className="w-80 mx-auto">

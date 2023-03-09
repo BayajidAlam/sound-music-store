@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./Login.css";
 import loginImg from "../../assets/loginimg.jpg";
 import { TbBrandLinktree } from "react-icons/tb";
@@ -7,6 +7,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../context/AuthProvider";
 import { toast, Toaster } from "react-hot-toast";
+import useToken from "../../hooks/UseToken";
 
 const Login = () => {
   // context
@@ -23,6 +24,12 @@ const Login = () => {
   let location = useLocation();
   let from = location.state?.from?.pathname || "/";
 
+  // const [ loginUserEmail, setLogInUserEmail ] = useState('');
+  // const [token] = useToken(loginUserEmail)
+  
+  // if(token){
+  //   navigate(from, { replace: true });
+  // }
   // login handler
   const handleLogin = (data) => {
     // sign in a user
@@ -30,6 +37,7 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         toast.success("Signed in user successfully!");
+        // setLogInUserEmail(data.email);
         navigate(from, { replace: true });
       })
       .catch((err) => {

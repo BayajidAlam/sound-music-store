@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./SignUp..css";
 import loginImg from "../../assets/loginimg.jpg";
 import { TbBrandLinktree } from "react-icons/tb";
@@ -7,6 +7,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../context/AuthProvider";
 import { toast, Toaster } from "react-hot-toast";
+import useToken from "../../hooks/UseToken";
 
 const SignUp = () => {
 
@@ -23,6 +24,12 @@ const SignUp = () => {
   let navigate = useNavigate();
   let location = useLocation();
   let from = location.state?.from?.pathname || "/";
+  // const [ createdUserEmail, setCreatedUserEmail ] = useState('');
+  // const [token] = useToken(createdUserEmail);
+  
+  // if(token){
+  //   navigate(from, { replace: true });
+  // }
 
   
   // login handler 
@@ -50,7 +57,6 @@ const SignUp = () => {
       updateUser(userInfo)
       .then(()=>{
         toast.success('Profile updated!');
-        navigate(from, { replace: true });
         saveUser(userData)
       })
       .catch(err=>{
@@ -73,11 +79,15 @@ const SignUp = () => {
     })
     .then(res=>res.json())
     .then(data=>{
-      if(data.acknowledge){
+      if(data.acknowledged){
         toast.success('User saved successfully!')
+        // setCreatedUserEmail(userData.email)
+        navigate(from, { replace: true });
       }
     })
   }
+
+
   return (
     <section>
       <div

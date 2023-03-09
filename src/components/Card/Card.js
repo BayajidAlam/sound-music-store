@@ -4,7 +4,7 @@ import { HiLocationMarker } from 'react-icons/hi';
 
 const Card = ({ card }) => {
   const { picture, name, location, originalPrice, useingFrom, _id,conditions } = card;
-console.log(card);
+
   return (
     <section>
       <div className="lg:w-[400px] md:w-[360px] mx-auto flex flex-col shadow-xl">

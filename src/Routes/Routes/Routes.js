@@ -6,6 +6,11 @@ import Main from "../../Layout/Main";
 import Second from "../../Layout/Second";
 import AddAProduct from "../../Pages/AddAProduct/AddAProduct";
 import Blogs from "../../Pages/Blogs/Blogs";
+import AllBuyers from "../../Pages/Dashboard/AllBuyers/AllBuyers";
+import AllUsers from "../../Pages/Dashboard/AllSellers/AllSellers";
+import MyBuyers from "../../Pages/Dashboard/MyBuyers/MyBuyers";
+import MyProduct from "../../Pages/Dashboard/MyProduct/MyProduct";
+import ReportedItem from "../../Pages/Dashboard/ReportedItem/ReportedItem";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import MyOrders from "../../Pages/MyOrders/MyOrders";
@@ -76,6 +81,30 @@ const router = createBrowserRouter([
       {
         path: '/v3/dashboard/addProduct',
         element: <AddAProduct/>
+      },
+      {
+        path: '/v3/dashboard/allsellers',
+        element: <AllUsers/>
+      },
+      {
+        path: '/v3/dashboard/allbuyers',
+        element: <AllBuyers/>
+      },
+      {
+        path: '/v3/dashboard/addAProduct',
+        element: <AddAProduct/>
+      },
+      {
+        path: '/v3/dashboard/myProduct',
+        element: <MyProduct/>
+      },
+      {
+        path: '/v3/dashboard/myBuyer',
+        element: <MyBuyers/>
+      },
+      {
+        path: '/v3/dashboard/reported',
+        element: <ReportedItem/>
       }
     ]
   }

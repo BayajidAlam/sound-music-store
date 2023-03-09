@@ -6,7 +6,7 @@ const NewsLetter = () => {
   return (
     <section className="py-8">
       <div className="sm:flex container mx-auto">
-        <div className="sm:w-1/2 bg-main py-12">
+        <div className="sm:w-1/2 bg-black py-12">
           <div className="w-4/5 mx-auto text-center space-y-4">
             <h1 className="text-3xl font-bold text-white">
               Subscribe to our Newsletter
