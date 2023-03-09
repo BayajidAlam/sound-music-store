@@ -15,7 +15,7 @@ const BestSelles = () => {
   }, []);
   
   return (
-    <section className="pb-16">
+    <section className="pb-20">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 container mx-auto gap-6">
         {bestSells.map((sell,i) => (
         <Link key={i} to={`/viewDetails/${sell._id}`}>

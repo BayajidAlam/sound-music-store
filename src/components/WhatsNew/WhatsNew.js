@@ -7,14 +7,14 @@ import { Link } from "react-router-dom";
 
 const WhatsNew = () => {
   return (
-    <section className="pb-16">
+    <section className="pb-20">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <Link to="/blogs">
           <div className="flex">
-            <img className="w-1/2 h-52 mr-2" src={img1} alt="" />
+            <img className="w-1/2 h-64 mr-2" src={img1} alt="" />
             <div className="w-1/2">
               <div className="border-t-2 border-main">
-                <div className="p-2 space-y-2">
+                <div className="p-2 space-y-6">
                   <h1
                     className="font-bold text-black    
                   "
@@ -42,10 +42,10 @@ const WhatsNew = () => {
 
         <Link to="/blogs">
           <div className="flex">
-            <img className="w-1/2 h-52 mr-2" src={img2} alt="" />
+            <img className="w-1/2 h-64 mr-2" src={img2} alt="" />
             <div className="w-1/2">
               <div className="border-t-2 border-main">
-                <div className="p-2">
+                <div className="p-2 space-y-6">
                   <h1
                     className="font-bold text-black    
                   "
@@ -73,10 +73,10 @@ const WhatsNew = () => {
 
         <Link to='/blogs'>
           <div className="flex">
-            <img className="w-1/2 h-52 mr-2" src={img3} alt="" />
+            <img className="w-1/2 h-64 mr-2" src={img3} alt="" />
             <div className="w-1/2">
               <div className="border-t-2 border-main">
-                <div className="p-2">
+                <div className="p-2 space-y-6">
                   <h1
                     className="font-bold text-black    
                   "

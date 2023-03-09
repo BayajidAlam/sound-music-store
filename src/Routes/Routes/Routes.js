@@ -8,6 +8,7 @@ import AddAProduct from "../../Pages/AddAProduct/AddAProduct";
 import Blogs from "../../Pages/Blogs/Blogs";
 import AllBuyers from "../../Pages/Dashboard/AllBuyers/AllBuyers";
 import AllUsers from "../../Pages/Dashboard/AllSellers/AllSellers";
+import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
 import MyBuyers from "../../Pages/Dashboard/MyBuyers/MyBuyers";
 import MyProduct from "../../Pages/Dashboard/MyProduct/MyProduct";
 import ReportedItem from "../../Pages/Dashboard/ReportedItem/ReportedItem";
@@ -19,6 +20,7 @@ import PaymentSuceess from "../../Pages/PyamentSuccess/PaymentSuceess";
 import SignUp from "../../Pages/SignUp/SignUp";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import SellerRoute from "../SellerRoute/SellerRoute";
 
 const router = createBrowserRouter([
   {
@@ -77,11 +79,15 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/v3/dashboard',
+        element: <Dashboard/>
+      },
+      {
+        path: '/v3/dashboard/myOrder',
         element: <MyOrders/>
       },
       {
         path: '/v3/dashboard/addProduct',
-        element: <AddAProduct/>
+        element: <SellerRoute><AddAProduct/></SellerRoute>
       },
       {
         path: '/v3/dashboard/allsellers',

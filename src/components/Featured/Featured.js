@@ -9,7 +9,7 @@ import { AiFillStar } from 'react-icons/ai';
 
 const Featured = () => {
   return (
-    <section className='pb-16'>
+    <section className='pb-20'>
     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 container mx-auto gap-6'>
     <div>
         <img className='w-80 h-[350px] m-auto' src={featureImg1} alt="" />

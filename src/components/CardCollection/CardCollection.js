@@ -7,7 +7,7 @@ const CardCollection = () => {
   return (
     <section className='py-12'>
       <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-          <div className='flex items-center py-6 px-8 bg-[#F8F8F8]'>
+          <div className='flex items-center py-12 px-8 bg-[#F8F8F8]'>
             <img className='w-28 h-28' src={gif} alt="" />
             <div>
               <p className='font-bold text-black'>FREE SHIPPING</p>

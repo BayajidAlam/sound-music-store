@@ -27,7 +27,7 @@ const Home = () => {
       <ElectricDrum />
 
 
-      <div className="container mx-auto text-black py-12 placeholder-blue-800">
+      <div className="container mx-auto text-black py-16 placeholder-blue-800">
         <div className="divider text-xl font-bold">Accesories</div>
       </div>
 
@@ -37,13 +37,13 @@ const Home = () => {
       <Brand />
 
 
-      <div className="container mx-auto text-black py-12 placeholder-blue-800">
+      <div className="container mx-auto text-black py-16 placeholder-blue-800">
         <div className="divider text-xl font-bold">Featured</div>
       </div>
       <Featured/>
 
       <CardCollection/>
-      <div className="container mx-auto text-black py-12 placeholder-blue-800">
+      <div className="container mx-auto text-black py-16 placeholder-blue-800">
         <div className="divider text-xl font-bold">What's New</div>
       </div>
 

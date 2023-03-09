@@ -16,7 +16,7 @@ const Categories = () => {
   }, []);
 
   return (
-    <section>
+    <section className="pb-8">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 container mx-auto">
         {categories.map((category,i) => (
           
