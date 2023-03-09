@@ -7,7 +7,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../context/AuthProvider";
 import { toast, Toaster } from "react-hot-toast";
-import useToken from "../../hooks/UseToken";
+import useToken from "../../hooks/useToken";
 
 const Login = () => {
   // context
@@ -26,7 +26,7 @@ const Login = () => {
 
   // const [ loginUserEmail, setLogInUserEmail ] = useState('');
   // const [token] = useToken(loginUserEmail)
-  
+
   // if(token){
   //   navigate(from, { replace: true });
   // }

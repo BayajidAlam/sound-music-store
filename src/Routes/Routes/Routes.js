@@ -17,6 +17,7 @@ import MyOrders from "../../Pages/MyOrders/MyOrders";
 import PaymentFail from "../../Pages/PaymentFail/PaymentFail";
 import PaymentSuceess from "../../Pages/PyamentSuccess/PaymentSuceess";
 import SignUp from "../../Pages/SignUp/SignUp";
+import AdminRoute from "../AdminRoute/AdminRoute";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
@@ -88,7 +89,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/v3/dashboard/allbuyers',
-        element: <AllBuyers/>
+        element: <AdminRoute><AllBuyers/></AdminRoute>
       },
       {
         path: '/v3/dashboard/addAProduct',
