@@ -4,15 +4,13 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 
 const BookingModal = ({ booking, setBooking }) => {
-
-  const { name, resalePrice,email,picture
-  } = booking;
+  const { name, resalePrice, email, picture } = booking;
   // context
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
-  
-  const handleBooking = event => {
-    event.preventDefault()
+
+  const handleBooking = (event) => {
+    event.preventDefault();
     const form = event.target;
 
     const buyerName = user?.displayName;
@@ -20,9 +18,9 @@ const BookingModal = ({ booking, setBooking }) => {
     const buyerEmail = user?.email;
 
     const meetLocation = form.location.value;
-    const buyerPhone = form.phone.value
+    const buyerPhone = form.phone.value;
 
-    // make a object of mooking details 
+    // make a object of mooking details
     const bookingData = {
       productName: name,
       price: resalePrice,
@@ -31,44 +29,42 @@ const BookingModal = ({ booking, setBooking }) => {
       buyerPhone,
       meetLocation,
       sellerEmail,
-      picture
-    }
-    
-    // post to server 
-    fetch('http://localhost:5000/booking', {
-      method: 'POST',
-      headers: {
-        'Content-type': "application/json"
-      },
-      body: JSON.stringify(bookingData)
-    })
-    .then(res=>res.json())
-    .then(data=>{
-      if(data.acknowledged){
-        setBooking(null)
-        updateBookingStatus(booking._id)
-        toast.success('Thank you, successful booked!')
-        navigate('/v3/dashboard')
-      }
-    })
-  }
+      picture,
+    };
 
-  const updateBookingStatus = id => {
-    const doc = {
-      salesStatus : "booked"
-    }
-    fetch(`http://localhost:5000/setbooked/${id}`,{
-      method: 'PUT',
+    // post to server
+    fetch("http://localhost:5000/booking", {
+      method: "POST",
       headers: {
-        'content-type': 'application/json'
+        "Content-type": "application/json",
       },
-      body: JSON.stringify(doc)
+      body: JSON.stringify(bookingData),
     })
-    .then(res=>res.json())
-    .then(data=>{
-      
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          setBooking(null);
+          updateBookingStatus(booking._id);
+          toast.success("Thank you, successful booked!");
+          navigate("/v3/dashboard");
+        }
+      });
+  };
+
+  const updateBookingStatus = (id) => {
+    const doc = {
+      salesStatus: "booked",
+    };
+    fetch(`http://localhost:5000/setbooked/${id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(doc),
     })
-  }
+      .then((res) => res.json())
+      .then((data) => {});
+  };
 
   return (
     <>
@@ -120,9 +116,11 @@ const BookingModal = ({ booking, setBooking }) => {
                 </div>
                 <div className="w-[48%]">
                   <p className="mb-1 text-black">Product Price</p>
-                  <input className="w-full border py-1 px-2" type="text" 
-                  defaultValue={resalePrice}
-                  readOnly
+                  <input
+                    className="w-full border py-1 px-2"
+                    type="text"
+                    defaultValue={resalePrice}
+                    readOnly
                   />
                 </div>
               </div>
@@ -147,7 +145,12 @@ const BookingModal = ({ booking, setBooking }) => {
                 />
               </div>
               <div className="text-center font-bold">
-                <button type="submit" className="bg-main text-white py-1 px-6 rounded-full hover:shadow-xl">Procced Order</button>
+                <button
+                  type="submit"
+                  className="bg-main text-white py-1 px-6 rounded-full hover:shadow-xl"
+                >
+                  Procced Order
+                </button>
               </div>
             </form>
           </div>

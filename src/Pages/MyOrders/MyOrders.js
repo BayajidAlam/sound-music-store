@@ -10,20 +10,20 @@ const MyOrders = () => {
     queryKey: ["bookings", user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/bookings?email=${user?.email}`, {
+        `http://localhost:5000/bookings?email=${user?.email}`,
+        {
           headers: {
-            authorization: `bearer ${localStorage.getItem('accessToken')}`
-          }
+            authorization: `bearer ${localStorage.getItem("accessToken")}`,
+          },
         }
       );
       const data = await res.json();
       return data;
     },
   });
-
+console.log(booings);
   // make an order
   const handleOrder = (booking) => {
-
     const order = {
       productId: booking._id,
       productName: booking.productName,
@@ -31,21 +31,20 @@ const MyOrders = () => {
       email: booking.buyerEmail,
       phone: booking.buyerPhone,
       price: booking.price,
-      location: booking.meetLocation
-
+      location: booking.meetLocation,
     };
-    // send to server 
-    fetch('http://localhost:5000/order', {
-      method: 'POST',
+    // send to server
+    fetch("http://localhost:5000/order", {
+      method: "POST",
       headers: {
-        'content-type': 'application/json'
+        "content-type": "application/json",
       },
-      body: JSON.stringify(order)
+      body: JSON.stringify(order),
     })
-    .then(res=>res.json())
-    .then(data=>{
-      window.location.replace(data.url)
-    })
+      .then((res) => res.json())
+      .then((data) => {
+        window.location.replace(data.url);
+      });
   };
 
   if (booings.length === 0) {

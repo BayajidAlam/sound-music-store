@@ -50,8 +50,13 @@ const PaymentSuceess = () => {
         </div>
       </div>
       <div className="text-center mt-12">
-        <button  onClick={()=>window.print()} className="text-white bg-main px-8 text-xl
-         font-bold rounded-full py-1">Print</button>
+        <button
+          onClick={() => window.print()}
+          className="text-white bg-main px-8 text-xl
+         font-bold rounded-full py-1"
+        >
+          Print
+        </button>
       </div>
     </section>
   );
