@@ -16,7 +16,6 @@ const AllSellers = () => {
       return data;
     },
   });
-  console.log(allSellers);
 
   // delete a user
   const handleDelete = (id) => {
@@ -35,16 +34,34 @@ const AllSellers = () => {
       });
   };
 
+  // if loading
+  if (isLoading) {
+    return (
+      <div className="center">
+        <div className="wave"></div>
+        <div className="wave"></div>
+        <div className="wave"></div>
+        <div className="wave"></div>
+        <div className="wave"></div>
+        <div className="wave"></div>
+        <div className="wave"></div>
+        <div className="wave"></div>
+        <div className="wave"></div>
+        <div className="wave"></div>
+      </div>
+    );
+  }
+
   return (
     <section>
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>
             <tr>
-              <th>No</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Action</th>
+              <th className="w-1/4">No</th>
+              <th className="w-1/4">Name</th>
+              <th className="w-1/4">Email</th>
+              <th className="w-1/4">Action</th>
             </tr>
           </thead>
           <tbody>
