@@ -10,7 +10,7 @@ const MyOrders = () => {
     queryKey: ["bookings", user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/bookings?email=${user?.email}`,
+        `https://sound-music-server-bayajidalam.vercel.app/bookings?email=${user?.email}`,
         {
           headers: {
             authorization: `bearer ${localStorage.getItem("accessToken")}`,
@@ -21,7 +21,7 @@ const MyOrders = () => {
       return data;
     },
   });
-console.log(booings);
+  console.log(booings);
   // make an order
   const handleOrder = (booking) => {
     const order = {
@@ -34,7 +34,7 @@ console.log(booings);
       location: booking.meetLocation,
     };
     // send to server
-    fetch("http://localhost:5000/order", {
+    fetch("https://sound-music-server-bayajidalam.vercel.app/order", {
       method: "POST",
       headers: {
         "content-type": "application/json",

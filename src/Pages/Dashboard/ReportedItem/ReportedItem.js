@@ -11,7 +11,9 @@ const ReportedItem = () => {
   } = useQuery({
     queryKey: "reportedItem",
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/reportedItem");
+      const res = await fetch(
+        "https://sound-music-server-bayajidalam.vercel.app/reportedItem"
+      );
       const data = res.json();
       return data;
     },
@@ -19,12 +21,15 @@ const ReportedItem = () => {
 
   // delete a user
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/deleteReported/${id}`, {
-      method: "DELETE",
-      headers: {
-        "content-type": "application/json",
-      },
-    })
+    fetch(
+      `https://sound-music-server-bayajidalam.vercel.app/deleteReported/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "content-type": "application/json",
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {
@@ -95,7 +100,7 @@ const ReportedItem = () => {
           ))}
         </tbody>
       </table>
-      <Toaster/>
+      <Toaster />
     </div>
   );
 };

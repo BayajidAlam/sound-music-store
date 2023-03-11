@@ -12,7 +12,9 @@ const AddAProduct = () => {
   const { data: prodcuts = [] } = useQuery({
     queryKey: ["categories"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/categories");
+      const res = await fetch(
+        "https://sound-music-server-bayajidalam.vercel.app/categories"
+      );
       const data = await res.json();
       return data;
     },
@@ -22,7 +24,9 @@ const AddAProduct = () => {
   const { data: profileUser } = useQuery({
     queryKey: ["user", user?.email],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/user/${user?.email}`);
+      const res = await fetch(
+        `https://sound-music-server-bayajidalam.vercel.app/user/${user?.email}`
+      );
       const data = await res.json();
       return data;
     },
@@ -82,7 +86,7 @@ const AddAProduct = () => {
         // again check seller
         if (profileUser.role === "seller") {
           // send to db
-          fetch("http://localhost:5000/product", {
+          fetch("https://sound-music-server-bayajidalam.vercel.app/product", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

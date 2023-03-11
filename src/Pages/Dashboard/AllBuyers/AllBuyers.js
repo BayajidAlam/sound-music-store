@@ -11,22 +11,26 @@ const AllBuyers = () => {
   } = useQuery({
     queryKey: "allBuyer",
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/allBuyer?role=buyer");
+      const res = await fetch(
+        "https://sound-music-server-bayajidalam.vercel.app/allBuyer?role=buyer"
+      );
       const data = await res.json();
       return data;
     },
   });
 
-  
   // delete a user
   const handleDelete = (id) => {
     console.log(id);
-    fetch(`http://localhost:5000/deleteBuyer/${id}`, {
-      method: "DELETE",
-      headers: {
-        "content-type": "application/json",
-      },
-    })
+    fetch(
+      `https://sound-music-server-bayajidalam.vercel.app/deleteBuyer/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "content-type": "application/json",
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {
@@ -36,24 +40,23 @@ const AllBuyers = () => {
       });
   };
 
-
-    // if loading
-    if (isLoading) {
-      return (
-        <div className="center">
-          <div className="wave"></div>
-          <div className="wave"></div>
-          <div className="wave"></div>
-          <div className="wave"></div>
-          <div className="wave"></div>
-          <div className="wave"></div>
-          <div className="wave"></div>
-          <div className="wave"></div>
-          <div className="wave"></div>
-          <div className="wave"></div>
-        </div>
-      );
-    }
+  // if loading
+  if (isLoading) {
+    return (
+      <div className="center">
+        <div className="wave"></div>
+        <div className="wave"></div>
+        <div className="wave"></div>
+        <div className="wave"></div>
+        <div className="wave"></div>
+        <div className="wave"></div>
+        <div className="wave"></div>
+        <div className="wave"></div>
+        <div className="wave"></div>
+        <div className="wave"></div>
+      </div>
+    );
+  }
 
   return (
     <div className="overflow-x-auto w-full">
@@ -85,7 +88,7 @@ const AllBuyers = () => {
           ))}
         </tbody>
       </table>
-      <Toaster/>
+      <Toaster />
     </div>
   );
 };

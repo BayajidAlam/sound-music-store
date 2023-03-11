@@ -4,7 +4,8 @@ import { MdOutlineCall } from "react-icons/md";
 import { AiFillSafetyCertificate } from "react-icons/ai";
 import { MdAlternateEmail } from "react-icons/md";
 import BookingModal from "../BookingModal/BookingModal";
-import { Toaster } from "react-hot-toast";
+import { toast, Toaster } from "react-hot-toast";
+import { MdReport } from "react-icons/md";
 
 const ViewDetails = () => {
   // load data from loader
@@ -24,10 +25,31 @@ const ViewDetails = () => {
     salesStatus,
     useingFrom,
     description,
+    reportState,
   } = data;
 
   // state
   const [booking, setBooking] = useState(null);
+
+  const repoDoc = {
+    productReportState: reportState,
+  };
+
+  const handleReport = (id) => {
+    fetch(`https://sound-music-server-bayajidalam.vercel.app/report/${id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(repoDoc),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          toast.success("You have reported Successfully");
+        }
+      });
+  };
 
   return (
     <section className="h-screen">
@@ -78,7 +100,19 @@ const ViewDetails = () => {
         </div>
         <div>
           <div className="pl-16 py-4">
-            <p className="text-2xl text-main font-bold">TK {resalePrice}</p>
+            <div className="flex justify-between w-1/2 items-center">
+              <p className="text-2xl text-main font-bold">TK {resalePrice}</p>
+
+              {reportState !== "reported" && (
+                <button onClick={() => handleReport(data._id)}>
+                  {" "}
+                  <div className="flex w-20 justify-between items-center">
+                    <MdReport className="text-main text-xl" />{" "}
+                    <p className="text-xl">Report</p>
+                  </div>
+                </button>
+              )}
+            </div>
             <div className="grid grid-cols-2 w-1/2 gap-4 mt-2">
               <p className="text-gray-500">Original Price: {originalPrice}</p>
               <p className="text-gray-500 capitalize">
@@ -118,11 +152,8 @@ const ViewDetails = () => {
         </div>
       </div>
 
-      {booking && <BookingModal 
-      booking={booking} 
-      setBooking={setBooking}
-      />}
-      <Toaster/>
+      {booking && <BookingModal booking={booking} setBooking={setBooking} />}
+      <Toaster />
     </section>
   );
 };

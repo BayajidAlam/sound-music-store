@@ -38,7 +38,9 @@ const router = createBrowserRouter([
         path: "/category/:name",
         element: <Category />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/category?name=${params.name}`),
+          fetch(
+            `https://sound-music-server-bayajidalam.vercel.app/category?name=${params.name}`
+          ),
       },
       {
         path: "/viewDetails/:id",
@@ -48,7 +50,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/viewDetails?id=${params.id}`),
+          fetch(
+            `https://sound-music-server-bayajidalam.vercel.app/viewDetails?id=${params.id}`
+          ),
       },
       {
         path: "/blogs",

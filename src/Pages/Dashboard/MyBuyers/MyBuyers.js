@@ -9,7 +9,7 @@ const MyBuyers = () => {
     queryKey: ["mySeller", user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/mySeller?email=${user?.email}`
+        `https://sound-music-server-bayajidalam.vercel.app/mySeller?email=${user?.email}`
       );
       const data = await res.json();
       return data;

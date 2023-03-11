@@ -12,7 +12,9 @@ const PaymentSuceess = () => {
 
   // fetch
   useEffect(() => {
-    fetch(`http://localhost:5000/orders/by-transaction-id/${transactionId}`)
+    fetch(
+      `https://sound-music-server-bayajidalam.vercel.app/orders/by-transaction-id/${transactionId}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setOrder(data);

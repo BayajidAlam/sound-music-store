@@ -7,7 +7,9 @@ import { Link } from "react-router-dom";
 const BestSelles = () => {
   const [bestSells, setBestSelles] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/category?name=Accessories")
+    fetch(
+      "https://sound-music-server-bayajidalam.vercel.app/category?name=Accessories"
+    )
       .then((res) => res.json())
       .then((data) => {
         setBestSelles(data);

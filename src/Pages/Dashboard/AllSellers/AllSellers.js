@@ -11,7 +11,9 @@ const AllSellers = () => {
   } = useQuery({
     queryKey: ["allSellers"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/allSellers?role=seller");
+      const res = await fetch(
+        "https://sound-music-server-bayajidalam.vercel.app/allSellers?role=seller"
+      );
       const data = await res.json();
       return data;
     },
@@ -19,12 +21,15 @@ const AllSellers = () => {
 
   // delete a user
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/deleteSeller/${id}`, {
-      method: "DELETE",
-      headers: {
-        "content-type": "application/json",
-      },
-    })
+    fetch(
+      `https://sound-music-server-bayajidalam.vercel.app/deleteSeller/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "content-type": "application/json",
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {

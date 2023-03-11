@@ -17,7 +17,9 @@ const MyProduct = () => {
   } = useQuery({
     queryKey: ["myProduct", user?.email],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/myProduct/${user?.email}`);
+      const res = await fetch(
+        `https://sound-music-server-bayajidalam.vercel.app/myProduct/${user?.email}`
+      );
       const data = await res.json();
       return data;
     },
@@ -28,13 +30,16 @@ const MyProduct = () => {
     const updatedDoc = {
       state: "advertised",
     };
-    fetch(`http://localhost:5000/advertisement/${id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updatedDoc),
-    })
+    fetch(
+      `https://sound-music-server-bayajidalam.vercel.app/advertisement/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updatedDoc),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
@@ -46,7 +51,7 @@ const MyProduct = () => {
 
   // delete a product
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/delete/${id}`, {
+    fetch(`https://sound-music-server-bayajidalam.vercel.app/delete/${id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
@@ -94,13 +99,13 @@ const MyProduct = () => {
         <table className="table w-full">
           <thead>
             <tr>
-              <th>
+              <th className="w-1/5">
                 <p>No</p>
               </th>
-              <th>Product Details</th>
-              <th>Status</th>
-              <th>Advertise</th>
-              <th>Delete</th>
+              <th className="w-1/5">Product Details</th>
+              <th className="w-1/5">Status</th>
+              <th className="w-1/5">Advertise</th>
+              <th className="w-1/5">Delete</th>
             </tr>
           </thead>
           <tbody>
