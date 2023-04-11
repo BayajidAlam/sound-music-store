@@ -8,7 +8,7 @@ const Categories = () => {
 
   // fetch all category
   useEffect(() => {
-    fetch("https://sound-music-server-bayajidalam.vercel.app/categories")
+    fetch("https://sound-music-server.onrender.com/categories")
       .then((res) => res.json())
       .then((data) => {
         setCategories(data);

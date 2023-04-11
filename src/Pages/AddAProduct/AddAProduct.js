@@ -13,7 +13,7 @@ const AddAProduct = () => {
     queryKey: ["categories"],
     queryFn: async () => {
       const res = await fetch(
-        "https://sound-music-server-bayajidalam.vercel.app/categories"
+        "https://sound-music-server.onrender.com/categories"
       );
       const data = await res.json();
       return data;
@@ -25,7 +25,7 @@ const AddAProduct = () => {
     queryKey: ["user", user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `https://sound-music-server-bayajidalam.vercel.app/user/${user?.email}`
+        `https://sound-music-server.onrender.com/user/${user?.email}`
       );
       const data = await res.json();
       return data;
@@ -56,7 +56,7 @@ const AddAProduct = () => {
     formData.append("image", image);
 
     const url =
-      "https://api.imgbb.com/1/upload?expiration=600&key=3bb493647a4888b5907ecc8363177833";
+      "https://api.imgbb.com/1/upload?key=3bb493647a4888b5907ecc8363177833";
 
     fetch(url, {
       method: "POST",
@@ -86,7 +86,7 @@ const AddAProduct = () => {
         // again check seller
         if (profileUser.role === "seller") {
           // send to db
-          fetch("https://sound-music-server-bayajidalam.vercel.app/product", {
+          fetch("https://sound-music-server.onrender.com/product", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

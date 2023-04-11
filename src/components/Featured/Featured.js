@@ -8,7 +8,7 @@ const Featured = () => {
 
   // get all advertised item
   useEffect(() => {
-    fetch("https://sound-music-server-bayajidalam.vercel.app/advertised")
+    fetch("https://sound-music-server.onrender.com/advertised")
       .then((res) => res.json())
       .then((data) => {
         setFeatured(data);

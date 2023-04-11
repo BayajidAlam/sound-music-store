@@ -18,7 +18,7 @@ const MyProduct = () => {
     queryKey: ["myProduct", user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `https://sound-music-server-bayajidalam.vercel.app/myProduct/${user?.email}`
+        `https://sound-music-server.onrender.com/myProduct/${user?.email}`
       );
       const data = await res.json();
       return data;
@@ -30,16 +30,13 @@ const MyProduct = () => {
     const updatedDoc = {
       state: "advertised",
     };
-    fetch(
-      `https://sound-music-server-bayajidalam.vercel.app/advertisement/${id}`,
-      {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(updatedDoc),
-      }
-    )
+    fetch(`https://sound-music-server.onrender.com/advertisement/${id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updatedDoc),
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
@@ -51,7 +48,7 @@ const MyProduct = () => {
 
   // delete a product
   const handleDelete = (id) => {
-    fetch(`https://sound-music-server-bayajidalam.vercel.app/delete/${id}`, {
+    fetch(`https://sound-music-server.onrender.com/delete/${id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",

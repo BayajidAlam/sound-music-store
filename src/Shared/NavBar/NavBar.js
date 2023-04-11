@@ -34,9 +34,6 @@ const NavBar = () => {
       ) : (
         ""
       )}
-       <li className="li-style">
-        <Link to='/about' className="font-bold">About Us</Link>
-      </li>
       <li className="li-style">
         <Link to='/blogs' className="font-bold">Blogs</Link>
       </li>

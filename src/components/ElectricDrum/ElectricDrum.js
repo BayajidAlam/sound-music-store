@@ -2,8 +2,9 @@ import React from "react";
 import img from "../../assets/Electric_drum.jpg";
 
 const ElectricDrum = () => {
+
   return (
-    <section className="bg-[#F8F8F8] py-20 mt-4">
+    <section  className="bg-[#F8F8F8] py-20 mt-4">
       <div className="container mx-auto sm:flex justify-center items-center">
         <img className="sm:w-1/2" src={img} alt="" />
         <div className="sm:w-1/2">

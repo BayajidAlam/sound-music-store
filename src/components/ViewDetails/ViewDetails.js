@@ -36,7 +36,7 @@ const ViewDetails = () => {
   };
 
   const handleReport = (id) => {
-    fetch(`https://sound-music-server-bayajidalam.vercel.app/report/${id}`, {
+    fetch(`https://sound-music-server.onrender.com/report/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

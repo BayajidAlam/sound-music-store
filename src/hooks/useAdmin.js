@@ -5,9 +5,7 @@ const useAdmin = (email) => {
   const [isAdminLoading, setIsAdminLoading] = useState(true);
   useEffect(() => {
     if (email) {
-      fetch(
-        `https://sound-music-server-bayajidalam.vercel.app/users/admin/${email}`
-      )
+      fetch(`https://sound-music-server.onrender.com/users/admin/${email}`)
         .then((res) => res.json())
         .then((data) => {
           console.log(data);

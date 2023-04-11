@@ -13,7 +13,7 @@ const PaymentSuceess = () => {
   // fetch
   useEffect(() => {
     fetch(
-      `https://sound-music-server-bayajidalam.vercel.app/orders/by-transaction-id/${transactionId}`
+      `https://sound-music-server.onrender.com/orders/by-transaction-id/${transactionId}`
     )
       .then((res) => res.json())
       .then((data) => {

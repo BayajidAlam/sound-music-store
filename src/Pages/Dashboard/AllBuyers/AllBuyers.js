@@ -12,7 +12,7 @@ const AllBuyers = () => {
     queryKey: "allBuyer",
     queryFn: async () => {
       const res = await fetch(
-        "https://sound-music-server-bayajidalam.vercel.app/allBuyer?role=buyer"
+        "https://sound-music-server.onrender.com/allBuyer?role=buyer"
       );
       const data = await res.json();
       return data;
@@ -22,15 +22,12 @@ const AllBuyers = () => {
   // delete a user
   const handleDelete = (id) => {
     console.log(id);
-    fetch(
-      `https://sound-music-server-bayajidalam.vercel.app/deleteBuyer/${id}`,
-      {
-        method: "DELETE",
-        headers: {
-          "content-type": "application/json",
-        },
-      }
-    )
+    fetch(`https://sound-music-server.onrender.com/deleteBuyer/${id}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {

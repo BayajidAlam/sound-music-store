@@ -67,7 +67,7 @@ const SignUp = () => {
 
   // save user to db
   const saveUser = (userData) => {
-    fetch("https://sound-music-server-bayajidalam.vercel.app/users", {
+    fetch("https://sound-music-server.onrender.com/users", {
       method: "POST",
       headers: {
         "Content-type": "application/json",

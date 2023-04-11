@@ -5,9 +5,7 @@ const useToken = (email) => {
   const [token, setToken] = useState("");
   useEffect(() => {
     if (email) {
-      fetch(
-        `https://sound-music-server-bayajidalam.vercel.app/jwt?email=${email}`
-      )
+      fetch(`https://sound-music-server.onrender.com/jwt?email=${email}`)
         .then((res) => res.json())
         .then((data) => {
           console.log(data);

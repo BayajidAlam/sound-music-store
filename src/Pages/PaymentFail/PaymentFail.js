@@ -8,6 +8,7 @@ const PaymentFail = () => {
           <p className='text-black font-bold mt-2'>Back to <Link className='text-main' to='/'>Home</Link></p>
     </div>
   );
+  
 };
 
 export default PaymentFail;

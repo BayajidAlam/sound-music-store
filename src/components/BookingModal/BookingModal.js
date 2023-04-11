@@ -33,7 +33,7 @@ const BookingModal = ({ booking, setBooking }) => {
     };
 
     // post to server
-    fetch("https://sound-music-server-bayajidalam.vercel.app/booking", {
+    fetch("https://sound-music-server.onrender.com/booking", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -55,7 +55,7 @@ const BookingModal = ({ booking, setBooking }) => {
     const doc = {
       salesStatus: "booked",
     };
-    fetch(`https://sound-music-server-bayajidalam.vercel.app/setbooked/${id}`, {
+    fetch(`https://sound-music-server.onrender.com/setbooked/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

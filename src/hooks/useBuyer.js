@@ -4,9 +4,7 @@ const useBuyer = (email) => {
   const [isBuyer, setIsBuyer] = useState(false);
   const [isBuyerLoading, setIsBuyerLoading] = useState(true);
   useEffect(() => {
-    fetch(
-      `https://sound-music-server-bayajidalam.vercel.app/users/Buyer/${email}`
-    )
+    fetch(`https://sound-music-server.onrender.com/users/Buyer/${email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

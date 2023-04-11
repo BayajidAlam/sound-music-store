@@ -12,7 +12,7 @@ const ReportedItem = () => {
     queryKey: "reportedItem",
     queryFn: async () => {
       const res = await fetch(
-        "https://sound-music-server-bayajidalam.vercel.app/reportedItem"
+        "https://sound-music-server.onrender.com/reportedItem"
       );
       const data = res.json();
       return data;
@@ -21,15 +21,12 @@ const ReportedItem = () => {
 
   // delete a user
   const handleDelete = (id) => {
-    fetch(
-      `https://sound-music-server-bayajidalam.vercel.app/deleteReported/${id}`,
-      {
-        method: "DELETE",
-        headers: {
-          "content-type": "application/json",
-        },
-      }
-    )
+    fetch(`https://sound-music-server.onrender.com/deleteReported/${id}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {

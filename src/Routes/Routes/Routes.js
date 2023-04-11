@@ -39,7 +39,7 @@ const router = createBrowserRouter([
         element: <Category />,
         loader: ({ params }) =>
           fetch(
-            `https://sound-music-server-bayajidalam.vercel.app/category?name=${params.name}`
+            `https://sound-music-server.onrender.com/category?name=${params.name}`
           ),
       },
       {
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://sound-music-server-bayajidalam.vercel.app/viewDetails?id=${params.id}`
+            `https://sound-music-server.onrender.com/viewDetails?id=${params.id}`
           ),
       },
       {

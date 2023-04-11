@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Banner from "../../../components/Banner/Banner";
 import BestSelles from "../../../components/BestSelles/BestSelles";
 import Brand from "../../../components/Brand/Brand";
@@ -10,9 +10,18 @@ import NewsLetter from "../../../components/NewsLetter/NewsLetter";
 import Violins from "../../../components/Violins/Violins";
 import WhatsNew from "../../../components/WhatsNew/WhatsNew";
 import WhoWeAre from "../../../components/WhoWeAre/WhoWeAre";
+import { AuthContext } from "../../../context/AuthProvider";
+import Loader from "../../../components/Loader/Loader";
 
 
 const Home = () => {
+
+  // last update 
+  const { loading } = useContext(AuthContext);
+  if(loading){
+    return <Loader/>
+  }
+
   return (
     <div>
       <Banner />
