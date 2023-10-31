@@ -9,7 +9,6 @@ import AddAProduct from "../../Pages/AddAProduct/AddAProduct";
 import Blogs from "../../Pages/Blogs/Blogs";
 import AllBuyers from "../../Pages/Dashboard/AllBuyers/AllBuyers";
 import AllSellers from "../../Pages/Dashboard/AllSellers/AllSellers";
-import AllUsers from "../../Pages/Dashboard/AllSellers/AllSellers";
 import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
 import MyBuyers from "../../Pages/Dashboard/MyBuyers/MyBuyers";
 import MyProduct from "../../Pages/Dashboard/MyProduct/MyProduct";
